@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+
+
+    input {
+        margin-top: 5px;
+    }
+    .formular {
+        font-size: 17px;
+        color: black;
+        max-width: 600px;
+    }
+
+    #title {
+        margin-bottom: 30px;
+    }
+    .error {
+        color: red;
+    }
+    #regDiv {
+        margin-top: 20px;
+        box-shadow: 8px 8px 8px #888888;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #adadad;
+        max-width: 600px;
+    }
+    .successText {
+        margin-left: 5px;
+        font-size: 16px;
+        color: black;
+    }
+    .form-control {
+        border-color: #686868;
+    }
+    .row {
+        width: 100vw;
+        font-family: "Times New Roman", Times, serif;
+
+    }
+    .stopTekst {
+            text-align: left;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    #zvezdice {
+        color: black;
+        font-size: 17px;
+    }
+    .link {
+        text-align: center;
+    }
+    .glavniCol {
+        margin-top: 110px;
+        margin-bottom: 200px;
+    }
+
+    @media (min-width: 320px) and (max-width: 959px) {
+           .glavniCol {
+            margin-top: 50px;
+            margin-bottom: 200px;
+            }
+    }
+
+    @media (min-width: 320px) and (max-width: 479px) {
+            com-sm-offset-3 {
+                width: 100vw;
+            }
+            #title, .stopTekst, #zvezdice, .formular, .btn-success, #regDiv {
+                margin-left: 2vw;
+            }
+            .formular {
+                max-width: 90vw;
+            }
+        }
+    @media (min-width: 480px) and (max-width: 767px) {
+            com-sm-offset-3 {
+                width: 100vw;
+            }
+            #title, .stopTekst, #zvezdice, .formular, .btn-success, #regDiv {
+                margin-left: 2vw;
+            }
+            .formular {
+                max-width: 70vw;
+            }
+        }
+</style>
+
+
+</head>
+<div class="row">
+
+
+<div class="col-sm-6 col-sm-offset-3 glavniCol">
+
+    <h1 id="title" style="margin-top: 100px;">Registrujte nalog</h1>
+    <p class="stopTekst">Ovde možete registrovati korisničko ime i lozinku</p>
+    <p id="zvezdice">* Sva polja su obavezna<br>* Korisničko ime i lozinka moraju imati najmanje 4 slova</p>
+    <form style="margin-bottom: 100px;" enctype="multipart/form-data" ng-submit="RgCtrl.doRegister()" name="myForm">
+
+        <input ng-minlength="4" class="form-control formular" required type="text"  ng-model="RgCtrl.user.username" placeholder="Korisničko ime/Username"/>
+        <div ng-show="RgCtrl.usernameError1" class="error">
+            <!-- ng-repeat="uError in RgCtrl.usernameError1" -->
+            <p>[[ RgCtrl.usernameError1 ]]</p>
+        </div>
+
+        <input required class="form-control formular" ng-model="RgCtrl.user.email" type="text"  placeholder="Email adresa/Email"/>
+        <div class="error" ng-show="RgCtrl.emailErrorValid">
+            <p>[[ RgCtrl.emailErrorValid ]]</p>
+        </div>
+
+        <input required class="form-control formular" ng-model="RgCtrl.user.email2" type="text" placeholder="Potvrdi Email/Confirm Email"/>
+        <div class="error" ng-show="RgCtrl.emailError2Valid">
+            <p>[[ RgCtrl.emailError2Valid ]]</p>
+        </div>
+        <div class="error" ng-show="RgCtrl.emailError2Match">
+            <p>[[ RgCtrl.emailError2Match]]</p>
+        </div>
+        <div class="error" ng-show="RgCtrl.emailError2Reg">
+            <p>[[ RgCtrl.emailError2Reg]]</p>
+        </div>
+
+        <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password" type="password"  placeholder="Lozinka/Password"/>
+
+        <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password2" type="password"  placeholder="Potvrdi Lozinku/Confirm Password"/>
+        <div class="error" ng-show="RgCtrl.passwordErrorMatch">
+            <p>[[RgCtrl.passwordErrorMatch]]</p>
+        </div>
+        <div style="color: green" ng-show="RgCtrl.registerMessage">
+            <p>[[RgCtrl.registerMessage]]</p>
+        </div>
+
+        <input ng-disabled="myForm.$invalid" type="submit" value="Registruj se" class="btn btn-success" />
+    </form>
+    <div ng-show="userRegistered" id="regDiv" >
+        <p class="successText">Uspešno ste se registrovali sa: </p>
+        <p class="successText">Korisničkim imenom: <span style="color: blue;">[[ RgCtrl.regUsername ]]</span></p>
+        <p class="successText">Email adresom: <span style="color: blue;">[[ RgCtrl.regEmail ]]</span></p>
+        <h4 class="link"><a style="color: #560000;" ui-sref="login">Da li biste želeli da se prijavite na sajt?</a></h4>
+
+    </div>
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+<html>
+<head>
+
+    <style>
+
+        #error {
+            margin-top:10px;
+            color: red;
+        }
+        .form-control {
+            max-width: 400px;
+            border-color: #686868;
+        }
+        .formular {
+            font-size: 17px;
+            color: black;
+        }
+        .row {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .stopTekst {
+            text-align: left;
+            font-size: 25px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .glavniCol {
+            margin-top: 110px;
+            margin-bottom: 270px;
+        }
+
+        @media (min-width: 320px) and (max-width: 959px) {
+            .glavniCol {
+                margin-top: 40px;
+
+
+        }
+
+        @media (min-width: 320px) and (max-width: 479px) {
+            .formular {
+                max-width: 90vw;
+            }
+            .col-sm-offset-3 {
+                width: 100vw;
+            }
+            .prijava, .stopTekst, .formular, .btn-success {
+                margin-left: 2vw;
+            }
+
+        }
+        @media (min-width: 480px) and (max-width: 767px) {
+            .formular {
+                max-width: 50vw;
+            }
+            .col-sm-offset-3 {
+                width: 100vw;
+            }
+            .prijava, .stopTekst, .formular, .btn-success {
+                margin-left: 2vw;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3 glavniCol">
+
+    <h1 class="prijava" style="margin-top: 100px;">Prijavljivanje</h1>
+    <p class="stopTekst">Na ovoj stranici možete se prijaviti kako biste mogli da postavljate nove tekstove ili komentarišete postojeće.</p>
+    <p class="prijava">* Korisničko ime ili registrovana Email adresa<br></p>
+    <form ng-submit="LgCtrl.doLogin()" name="myForm">
+
+        <input required type="text" ng-model="LgCtrl.user.username" class="form-control formular" placeholder="Korisničko ime ili Email"/>
+
+        <input required style="margin-top:5px;" type="password" ng-model="LgCtrl.user.password" class="form-control formular" placeholder="Lozinka/Password"/>
+
+        <input ng-disabled="myForm.$invalid" style="margin-top:5px;" type="submit" value="Prijavi se" class="btn btn-success" />
+        <div id="error" ng-show="LgCtrl.loginError">
+            <p>[[ LgCtrl.loginError1 ]]</p>
+        </div>
+    </form>
+
+</div>
+</div>
+</body>
+</html>

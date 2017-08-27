@@ -1,0 +1,54 @@
+<html>
+
+<head>
+   <style>
+       #footer {
+           box-shadow: 0 -5px 5px -5px black;
+           font-family: "Times New Roman", Times, serif;
+       }
+       .prviFooter {
+           background-color: #353333;
+           height: 200px;
+           color: #ccc;
+           font-style: oblique;
+       }
+       .drugiFooter {
+           background-color: #353333;
+           color: #ccc;
+           height: 75px;
+       }
+       .linija {
+           height: 1px;
+           background-color: #515151;
+       }
+       #sajtLink {
+           margin-right: 5px;
+       }
+
+       @media (min-width: 320px) and (max-width: 768px) {
+           .linija {
+               height: 1px;
+               background-color: #515151;
+           }
+
+       }
+   </style>
+
+</head>
+
+
+<body>
+    <div id="footer" class="container">
+        <div class="row prviFooter">
+            <h2 style="margin-left: 20px;">Umetnički blog</h2>
+        </div>
+        <div class="row linija"></div>
+        <div class="row drugiFooter">
+            <div class="col-lg-9 col-md-9 col-sm-9"></div>
+            <div class="col-lg-3 col-md3 col-sm-3">
+                <p id="sajtLink">umetnicki-blog.herokuapp.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

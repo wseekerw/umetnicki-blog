@@ -1,0 +1,95 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="{% static 'js/angular/angular-1.5.6.js' %}"></script>
+    <script src="{% static 'js/angular/angular-cookies-1.5.6.js' %}"></script>
+    <script src="{% static 'js/angular/angular-ui-router-0.3.1.js' %}"></script>
+
+    <script src="{% static 'js/angular/ng-file-upload.js' %}"></script>
+    <script src="{% static 'js/angular/ng-file-upload-shim.js' %}"></script>
+
+    <!--<script src="{% static 'js/angular/angular-ui-router-1.0.3.js' %}"></script>-->
+    <script src="{% static 'js/angular/dirPagination.js' %}"></script>
+
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-3.3.7.css' %}"  crossorigin="anonymous">
+
+
+    <script src="{% static 'js/app/app.module.js' %}"></script>
+    <script src="{% static 'js/app/app.config.js' %}"></script>
+
+    <script src="{% static 'js/app/controllers/blog-list.controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/login-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/logout-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/register-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/time-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/detail-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/create-controller.js' %}"></script>
+    <script src="{% static 'js/app/controllers/post-edit-controller.js' %}"></script>
+
+
+
+    <script src="{% static 'js/app/navigation/navigation.module.js' %}"></script>
+    <script src="{% static 'js/app/navigation/navigation-directive.js' %}"></script>
+
+
+
+
+
+    <style>
+        .container {
+            width: 100vw;
+        }
+        .line {
+            height: 3px;
+        }
+    </style>
+
+</head>
+<body class="container" style="background-color: #d1d1d1;">
+
+
+    <div ng-app="umetnickiBlog" class="row">
+        <!--<div class="line" style="background-image: url({% static 'img/red.jpg' %});"></div>-->
+        <main-nav></main-nav>
+
+
+
+
+
+
+
+
+        <div ui-view></div>
+
+        <footer ng-include="'{% static 'angular_templates/footer.html'%}'"></footer>
+
+    </div>
+
+
+
+
+
+    <script>
+          var static_url = '{{STATIC_URL}}';
+
+          function static(path) {
+              return static_url + path;
+          }
+
+
+
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery-1.12.4.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap-3.3.7.min.js' %}" crossorigin="anonymous"></script>
+
+</body>
+</html>
